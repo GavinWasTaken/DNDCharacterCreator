@@ -63,6 +63,16 @@ namespace DNDCharacterCreator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] CharacterSheetTestWord {
+            get {
+                object obj = ResourceManager.GetObject("CharacterSheetTestWord", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DNDBlankCharacterSheetTest {
             get {
                 object obj = ResourceManager.GetObject("DNDBlankCharacterSheetTest", resourceCulture);

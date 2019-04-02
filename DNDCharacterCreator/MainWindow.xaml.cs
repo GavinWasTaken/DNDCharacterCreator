@@ -33,20 +33,20 @@ namespace DNDCharacterCreator
             InitializeComponent();
         }
 
-        public void CreatePDF()
+        public void CreateDoc()
         {
             //Converting the resource data into Byte[]
-            byte[] PDF = Properties.Resources.DNDBlankCharacterSheetTest;
+            byte[] doc = Properties.Resources.CharacterSheetTestWord;
 
-            MemoryStream ms = new MemoryStream(PDF);
+            MemoryStream ms = new MemoryStream(doc);
 
-            FileStream f = new FileStream("test.pdf", FileMode.OpenOrCreate );
+            FileStream f = new FileStream("test.docx", FileMode.OpenOrCreate );
 
             ms.WriteTo(f);
             f.Close();
             ms.Close();
 
-            Process.Start("test.pdf");
+            Process.Start("test.docx");
 
             
         }
@@ -54,6 +54,7 @@ namespace DNDCharacterCreator
         public void FindReplace2(string docLoc, string findText, string replaceText)
         {
             var app = new Microsoft.Office.Interop.Word.Application();
+            
             var doc = app.Documents.Open(docLoc);
 
             var range = doc.Range();
@@ -69,8 +70,10 @@ namespace DNDCharacterCreator
                 shape.TextFrame.TextRange.Text = resultingText;
             }
 
-            doc.Save();
-            doc.Close();
+
+            
+            doc.SaveAs2("Finshedtest1");
+            //doc.Close();
 
         }
 
@@ -206,15 +209,10 @@ namespace DNDCharacterCreator
 
         private void TestReplace(object sender, RoutedEventArgs e)
         {
-            String src = "C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\TableTestDoc.docx";
-            String dest = "C://Users/gavin/Documents/Dungeons & Dragons/Dm Stuff/Blank Character Sheet/test.doc";
-           
-            Microsoft.Office.Interop.Word.Application fileOpen = new Microsoft.Office.Interop.Word.Application();
-            Microsoft.Office.Interop.Word.Document wordDoc = fileOpen.Documents.Open(src);
 
-            FindReplace2("C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\Test.docx", "<Name>", "Woo");
-            //FindAndReplace(wordDoc, "<Name>", "Test");
-            //CreatePDF();
+            CreateDoc();
+            //FindReplace2("C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\Test1.docx", "<Name>", "Woo");
+
         }
 
         
