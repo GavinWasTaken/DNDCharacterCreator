@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -40,22 +41,24 @@ namespace DNDCharacterCreator
 
             MemoryStream ms = new MemoryStream(doc);
 
-            FileStream f = new FileStream("test.docx", FileMode.OpenOrCreate );
-
+            FileStream f = new FileStream(@"template", FileMode.OpenOrCreate );
+            
             ms.WriteTo(f);
             f.Close();
             ms.Close();
 
-            Process.Start("test.docx");
-
-            
         }
 
-        public void FindReplace2(string docLoc, string findText, string replaceText)
+        public void FindReplace2(string findText, string replaceText)
         {
+
+
+            string executableLocation = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string fileLocation = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\Resources/CharacterSheetTestWord.docx");
+
             var app = new Microsoft.Office.Interop.Word.Application();
             
-            var doc = app.Documents.Open(docLoc);
+            var doc = app.Documents.Open(fileLocation);
 
             var range = doc.Range();
 
@@ -70,118 +73,17 @@ namespace DNDCharacterCreator
                 shape.TextFrame.TextRange.Text = resultingText;
             }
 
-
+            string saveLoc = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tester.docx");
+            doc.SaveAs2(saveLoc);
+            app = null;
+            doc.Close();
+            Process.Start("tester.docx");
             
-            doc.SaveAs2("Finshedtest1");
-            //doc.Close();
+            
+            
 
         }
 
-        public void SearchTextBox(Microsoft.Office.Interop.Word.Document oDoc, string name, string newContent)
-        {
-            
-            if(oDoc.Shapes.Count > 0)
-            {
-                foreach (Microsoft.Office.Interop.Word.Shape shape in oDoc.Shapes)
-                    {
-                    var initialText = shape.TextFrame.TextRange.Text;
-                    var resultingText = initialText.Replace(name, newContent);
-                    shape.TextFrame.TextRange.Text = resultingText;
-
-                    //shape.TextFrame.TextRange.Text = newContent;
-                    //shape.TextFrame.ContainingRange.Text = newContent;
-
-                        return;
-                    }
-            }
-            
-        }
-
-       //public void FindAndReplace()
-       //{
-       //    String src = "C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\TableTestDoc.docx";
-       //    String dest = "C://Users/gavin/Documents/Dungeons & Dragons/Dm Stuff/Blank Character Sheet/test.doc";
-       //
-       //    Microsoft.Office.Interop.Word.Application fileOpen = new Microsoft.Office.Interop.Word.Application();
-       //    Microsoft.Office.Interop.Word.Document wordDoc = fileOpen.Documents.Open(src);
-       //
-       //    //SearchTextBox(wordDoc, "<Name>", "Testing");
-       //
-       //    wordDoc.Save();
-       //    wordDoc.Close();
-       //    //object oMissing = System.Reflection.Missing.Value;
-       //    //
-       //    //object savepoint = dest;
-       //    //wordDoc.SaveAs2(ref savepoint);
-       //    //wordDoc.Close(ref oMissing, ref oMissing, ref oMissing);
-       //    //wordDoc = null;
-       //    //fileOpen.Quit(ref oMissing, ref oMissing, ref oMissing);
-       //    //fileOpen = null;
-       //
-       //
-       //    //wordDoc.SaveAs2("C://Users/gavin/Documents/Dungeons & Dragons/Dm Stuff/Blank Character Sheet/testing.doc");
-       //    //, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
-       //
-       //
-       //
-       //    //PdfReader reader = new PdfReader(src);
-       //    //AcroFields pdffields = reader.AcroFields;
-       //    //if (reader.HasUsageRights())
-       //    //{
-       //    //    reader.RemoveUsageRights();
-       //    //
-       //    //
-       //    //
-       //    //    reader.SelectPages("1-2");
-       //    //    
-       //    //    using (FileStream newFileStream = new FileStream("test", FileMode.Create))
-       //    //    {
-       //    //        PdfStamper stamper = new PdfStamper(reader, newFileStream);
-       //    //        var fields = stamper.AcroFields;
-       //    //        var fieldkeys = fields.Fields.Keys;
-       //    //        foreach (String fieldKey in fieldkeys )
-       //    //        {
-       //    //            var value = reader.AcroFields.GetField(fieldKey);
-       //    //            fields.SetField(fieldKey, value.Replace("adcd", "adcd"));
-       //    //        }
-       //    //        stamper.FormFlattening = true;
-       //    //        stamper.Close();
-       //    //        reader.Close();
-       //    //    }
-       //    //}
-       //    // //File.Open("C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\DNDBlankCharacterSheetTest.pdf", FileMode.Open);
-       //    // //Process.Start("C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\DNDBlankCharacterSheetTest.pdf");
-       //    //
-       //
-       //    //File.Open("test.pdf", FileMode.Open);
-       //
-       //    //FileStream f = new FileStream("test.pdf", FileMode.OpenOrCreate);
-       //    //byte[] PDF = Properties.Resources.DNDBlankCharacterSheetTest;
-       //
-       //
-       //
-       //    //PdfStream stream = new PdfStream(PDF);
-       //    //PdfReader reader = new PdfReader(src);
-       //    //PdfDictionary dict = reader.GetPageN(1);
-       //    //PdfObject object = stream.GetDirectObject(PdfName.CONTENTS);
-       //
-       //    //string dd = new String(Encoding.UTF8.GetString(PDF).ToCharArray());
-       //    //dd = dd.Replace("<Name>", TestInputText.Text);
-       //
-       //    //byte[] converted = Encoding.ASCII.GetBytes(dd);
-       //    //MemoryStream convertedMS = new  MemoryStream(converted);
-       //    //stream.WriteContent(convertedMS);           
-       //    //byte[] finished = stream.GetBytes();
-       //    //MemoryStream ms = new MemoryStream(finished);
-       //
-       //    //convertedMS.WriteTo(f);
-       //    //f.Close();
-       //
-       //    //convertedMS.Close();
-       //
-       //
-       //    //Process.Start("test.pdf");
-       //}
         public void FindAndReplace(Microsoft.Office.Interop.Word.Application fileOpen, object findText, object replaceWithText)
         {
             object matchCase = false;
@@ -210,9 +112,13 @@ namespace DNDCharacterCreator
         private void TestReplace(object sender, RoutedEventArgs e)
         {
 
-            CreateDoc();
-            //FindReplace2("C:\\\\Users\\gavin\\Documents\\Dungeons & Dragons\\Dm Stuff\\Blank Character Sheet\\Test1.docx", "<Name>", "Woo");
-
+            //CreateDoc();
+            
+            
+            FindReplace2("<Name>", "Woo2");
+           
+            
+            //File.Open(fileLocation, FileMode.Open);
         }
 
         
