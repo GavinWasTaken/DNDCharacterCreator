@@ -12,11 +12,15 @@
         
             <StackPanel HorizontalAlignment="Center">
                 <Label FontSize="52" HorizontalAlignment="Center">Testing</Label>
-                <Label FontSize="10">This first test is to test the find and replace function for one word in the assigned pdf</Label>
+                <Label FontSize="10">This first test is to test the find and replace function for one word in the assigned word doc</Label>
                 <TextBox  Name="TestInputText" HorizontalAlignment="Center" Width="150" TextWrapping="Wrap" Margin="20, 20"/>
             <Button HorizontalAlignment="Center" Width="100" Background="MediumSlateBlue" Foreground="Black" Margin="20,20" Click="TestReplace">Test</Button>
             <Label FontSize="12" Name="testOutput" HorizontalAlignment="Center" Width="200" Height="20"/>
         </StackPanel>
+
+        <Frame Margin="5, 10, 5,10" x:Name="Main">
+            
+        </Frame>
         
     </Grid>
 </Window>
