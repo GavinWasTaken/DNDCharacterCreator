@@ -1,0 +1,77 @@
+﻿<Page x:Class="DNDCharacterCreator.StatSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DNDCharacterCreator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StatSelection">
+
+    <ScrollViewer>
+        <Grid Background="DarkMagenta">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Label>Set Your Stats!</Label>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <Label>Strenght</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="StrTxtBx"  Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="StrIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="StrDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <Label>Dexterity</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="DexTxtBx"  Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="DexIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="DexDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Label>Constitution</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="ConTxtBx"  Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="ConIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="ConDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Label>Intelligence</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="IntTxtBx"  Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="IntIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="IntDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Label>Wisdom</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="WisTxtBx" Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="WisIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="WisDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Label>Charisma</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="ChrTxtBx" Margin="10,10,2,10" MinHeight="10" MaxHeight="20" MinWidth="15" MaxWidth="20">10</TextBox>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="ChrIncrease" Click="IncreaseDecrease">+</Button>
+                            <Button x:Name="ChrDecrease" Click="IncreaseDecrease">-</Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Margin="0,10,0,10" HorizontalAlignment="Center" Click="SetStats">Continue</Button>
+                </StackPanel>
+                
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

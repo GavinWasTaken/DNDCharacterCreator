@@ -50,15 +50,21 @@ namespace DNDCharacterCreator
             //setting an object for the shapes within the word document
             var shapes = doc.Shapes;
 
+            var replacements = new Dictionary<string, string>();
+            replacements.Add("<Name>", "Test");
+            replacements.Add("<Class>", "Test2");
+
             //Looping through shapes within the word document finding and replacing
             //key word with user entered words
-            foreach(Microsoft.Office.Interop.Word.Shape shape in shapes)
+            foreach (var replacement in replacements)
             {
-                string initialText = shape.TextFrame.TextRange.Text;
-                string resultingText = initialText.Replace(findText, replaceText);
-                shape.TextFrame.TextRange.Text = resultingText;
+                foreach (Microsoft.Office.Interop.Word.Shape shape in shapes)
+                {
+                    string initialText = shape.TextFrame.TextRange.Text;
+                    string resultingText = initialText.Replace(replacement.Key, replacement.Value);
+                    shape.TextFrame.TextRange.Text = resultingText;
+                }
             }
-
             //initializing a string with the file path for the new finished word doc to be save to
             string saveLoc = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tester.docx");
             doc.SaveAs2(saveLoc);

@@ -19,8 +19,8 @@
         </StackPanel>
 
         <Frame Margin="5, 10, 5,10" x:Name="Main">
-            
+
         </Frame>
-        
+
     </Grid>
 </Window>

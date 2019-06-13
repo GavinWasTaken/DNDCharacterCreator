@@ -1,0 +1,94 @@
+﻿<Page x:Class="DNDCharacterCreator.ProficienciesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DNDCharacterCreator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProficienciesPage">
+
+    <Grid Background="DarkOrchid">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Choose your Skills!</Label>
+            <StackPanel x:Name="SkillStack" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="10,10,10,10" >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Acrobatics</Label>
+                        <CheckBox x:Name="AcroSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Animal Handling</Label>
+                        <CheckBox x:Name="AnimSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Arcana</Label>
+                        <CheckBox x:Name="ArcaSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Atheletics</Label>
+                        <CheckBox x:Name="AtheSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Deception</Label>
+                        <CheckBox x:Name="DeceSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>History</Label>
+                        <CheckBox x:Name="HistSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Insight</Label>
+                        <CheckBox x:Name="InsiSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Intimidation</Label>
+                        <CheckBox x:Name="IntiSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Investigation</Label>
+                        <CheckBox x:Name="InveSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Medicine</Label>
+                        <CheckBox x:Name="MediSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Nature</Label>
+                        <CheckBox x:Name="NatuSill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Perception</Label>
+                        <CheckBox x:Name="PercSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Persuasion</Label>
+                        <CheckBox x:Name="PersSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Religion</Label>
+                        <CheckBox x:Name="ReliSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Sleight Of Hand</Label>
+                        <CheckBox x:Name="SleiSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Stealth</Label>
+                        <CheckBox x:Name="SteaSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Survival</Label>
+                        <CheckBox x:Name="SurvSkill" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black"></CheckBox>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </StackPanel >
+            <Button x:Name="SetSkillButton" Click="SetSkills" HorizontalAlignment="Center" VerticalAlignment="Bottom">Set Proficiency</Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

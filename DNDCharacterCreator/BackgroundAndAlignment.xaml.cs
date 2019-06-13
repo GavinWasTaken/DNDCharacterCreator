@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DNDCharacterCreator.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,29 +14,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using DNDCharacterCreator.DataModels;
-
 namespace DNDCharacterCreator
 {
     /// <summary>
-    /// Interaction logic for CharacterRacePage.xaml
+    /// Interaction logic for BackgroundAndAlignment.xaml
     /// </summary>
-    public partial class CharacterRacePage : Page
+    public partial class BackgroundAndAlignment : Page
     {
         CharacterDetails charDetails = new CharacterDetails();
-
-        public CharacterRacePage(CharacterDetails addedDetails)
+        public BackgroundAndAlignment(CharacterDetails addedDetails)
         {
             charDetails = addedDetails;
             InitializeComponent();
-        } 
-
-        private void AddRace(object sender, RoutedEventArgs e)
-        {
-            charDetails.Race = raceTxt.Text;
-            BackgroundAndAlignment bkAndAlignPage = new BackgroundAndAlignment(charDetails);
-            this.NavigationService.Navigate(bkAndAlignPage);
         }
 
+        private void AddBackGroundAndAlignment(object sender, RoutedEventArgs e)
+        {
+            charDetails.Background = backgroundtxt.Text;
+            charDetails.Alignment = alignmenttxt.Text;
+            ClassSelectionPage classSelectPage = new ClassSelectionPage(charDetails);
+            this.NavigationService.Navigate(classSelectPage);
+        }
     }
 }

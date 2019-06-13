@@ -69,11 +69,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EquipmentSelection.xaml.cs">
+      <DependentUpon>EquipmentSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProficienciesPage.xaml.cs">
+      <DependentUpon>ProficienciesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatSelection.xaml.cs">
+      <DependentUpon>StatSelection.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BackgroundAndAlignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CharacterNamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CharacterRacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClassSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,11 +106,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BackgroundAndAlignment.xaml.cs">
+      <DependentUpon>BackgroundAndAlignment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CharacterNamePage.xaml.cs">
       <DependentUpon>CharacterNamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CharacterRacePage.xaml.cs">
       <DependentUpon>CharacterRacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassSelectionPage.xaml.cs">
+      <DependentUpon>ClassSelectionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModels\CharacterDetails.cs" />
     <Compile Include="Functions.cs" />
@@ -97,6 +124,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProficienciesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,6 +150,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
